@@ -5,6 +5,9 @@ const header = await fetch(
 const footer = await fetch(
     "https://common-ethmarks.vercel.app/footer.wc.html",
 ).then((r) => r.text());
+
+const title = "About Me";
+const description = "About Me page for Ethan Marks";
 ---
 
 <!doctype html>
@@ -12,6 +15,14 @@ const footer = await fetch(
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
+        <title>{title}</title>
+
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="profile" />
+
         <link
             rel="icon"
             href="https://common-ethmarks.vercel.app/ethmarks.ico"
@@ -23,8 +34,6 @@ const footer = await fetch(
         />
         <script src="https://common-ethmarks.vercel.app/ethmarks.wc.js" defer
         ></script>
-        <meta name="generator" content={Astro.generator} />
-        <title>Astro Basics</title>
     </head>
     <body>
         <eth-header active="about">
