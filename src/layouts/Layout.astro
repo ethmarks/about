@@ -1,3 +1,12 @@
+---
+const header = await fetch(
+    "https://common-ethmarks.vercel.app/header-about.wc.html",
+).then((r) => r.text());
+const footer = await fetch(
+    "https://common-ethmarks.vercel.app/footer.wc.html",
+).then((r) => r.text());
+---
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -12,10 +21,18 @@
             rel="stylesheet"
             href="https://common-ethmarks.vercel.app/ethmarks.css"
         />
+        <script src="https://common-ethmarks.vercel.app/ethmarks.wc.js" defer
+        ></script>
         <meta name="generator" content={Astro.generator} />
         <title>Astro Basics</title>
     </head>
     <body>
+        <eth-header active="about">
+            <Fragment set:html={header} />
+        </eth-header>
         <slot />
+        <eth-footer source="https://github.com/ethmarks/about">
+            <Fragment set:html={footer} />
+        </eth-footer>
     </body>
 </html>
