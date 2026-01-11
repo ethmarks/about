@@ -1,15 +1,72 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { Picture } from "astro:assets";
+import ethanpic from "../assets/ethan_about.webp";
 ---
 
 <Layout>
     <main>
         <h1>About Me</h1>
         <article>
-            <p>My name is Ethan Marks</p>
+            <section>
+                <div>
+                    <h2>Bio</h2>
+                    <p>
+                        My name is <strong>Ethan Marks</strong>. I'm 15 years
+                        old and in my fourth semester of dual-enrollment at my
+                        local community college.
+                    </p>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <Picture
+                        src={ethanpic}
+                        formats={["webp", "jpg"]}
+                        fallbackFormat="webp"
+                        alt="Ethan, a fair-skinned brown-haired teenager, wearing a white-collared button-up shirt, gently smiling at the camera while leaning against a railing. A vibrant, slightly blurred forest is visible in the background"
+                        class="responsive"
+                    />
+                </div>
+            </section>
         </article>
     </main>
 </Layout>
+
+<style>
+    h2 {
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    section {
+        display: flex;
+        align-items: stretch;
+        gap: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+        section {
+            display: block;
+            align-items: normal;
+        }
+    }
+
+    section > div {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        overflow-wrap: break-word;
+        flex-basis: 0;
+        flex-grow: 1;
+    }
+
+    section > div p {
+        margin: 0;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+</style>
