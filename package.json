@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/ethmarks/common#readme",
   "devDependencies": {
-    "astro": "^5.16.8"
+    "astro": "^5.16.8",
+    "sharp": "^0.34.5"
   }
 }
