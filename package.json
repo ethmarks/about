@@ -1,5 +1,5 @@
 {
-  "name": "about",
+  "name": "ethmarks-about",
   "version": "1.0.0",
   "description": "The About Me page of Ethan Marks ",
   "type": "module",
@@ -16,9 +16,9 @@
   "author": "Ethan Marks <ethmarks.dev@gmail.com> (https://github.com/ethmarks)",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ethmarks/common/issues"
+    "url": "https://github.com/ethmarks/about/issues"
   },
-  "homepage": "https://github.com/ethmarks/common#readme",
+  "homepage": "https://github.com/ethmarks/about#readme",
   "devDependencies": {
     "astro": "^5.16.8",
     "sharp": "^0.34.5"
