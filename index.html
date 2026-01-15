@@ -23,15 +23,19 @@
         <script type="module">
           import { createApp, reactive } from '/assets/petite-vue.js';
           import getGitStats from '/assets/gitstats.js';
+          import getDaysAlive from '/assets/daysalive.js';
 
           const store = reactive({
             commitCount: '~1500',
-            repoCount: '~17'
+            repoCount: '~17',
+            daysAlive: "~5,600"
           });
 
           createApp({
             store
           }).mount();
+
+          store.daysAlive = getDaysAlive();
 
           (async () => {
             const result = await getGitStats("ethmarks");
@@ -68,6 +72,7 @@
                     <div v-scope>
                         <p>Number of github commits: {{ store.commitCount }}</p>
                         <p>Number of github repos: {{ store.repoCount }}</p>
+                        <p>Number of days alive: {{ store.daysAlive }}</p>
                     </div>
                 </section>
             </article>
