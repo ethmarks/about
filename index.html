@@ -25,22 +25,20 @@
           import getGitStats from '/assets/gitstats.js';
           import getDaysAlive from '/assets/daysalive.js';
 
-          const store = reactive({
+          const git = reactive({
             commitCount: '~1500',
-            repoCount: '~17',
-            daysAlive: "~5,600"
+            repoCount: '~17'
           });
 
           createApp({
-            store
+            git,
+            daysAlive: getDaysAlive()
           }).mount();
-
-          store.daysAlive = getDaysAlive();
 
           (async () => {
             const result = await getGitStats("ethmarks");
-            store.commitCount = result.commitCount;
-            store.repoCount = result.repoCount
+            git.commitCount = result.commitCount;
+            git.repoCount = result.repoCount
           })();
         </script>
 
@@ -70,9 +68,9 @@
                 </section>
                 <section>
                     <div v-scope>
-                        <p>Number of github commits: {{ store.commitCount }}</p>
-                        <p>Number of github repos: {{ store.repoCount }}</p>
-                        <p>Number of days alive: {{ store.daysAlive }}</p>
+                        <p>Number of github commits: <span v-text="git.commitCount">~1500</span></p>
+                        <p>Number of github repos: <span v-text="git.repoCount">~10</span></p>
+                        <p>Number of days alive: <span v-text="daysAlive">~5000</span></p>
                     </div>
                 </section>
             </article>
