@@ -20,6 +20,26 @@
         <script src="https://site-ethmarks.vercel.app/common/ethmarks.wc.js" is:inline defer></script>
     </head>
     <body>
+        <script type="module">
+          import { createApp, reactive } from '/assets/petite-vue.js';
+          import getGitStats from '/assets/gitstats.js';
+
+          const store = reactive({
+            commitCount: '~1500',
+            repoCount: '~17'
+          });
+
+          createApp({
+            store
+          }).mount();
+
+          (async () => {
+            const result = await getGitStats("ethmarks");
+            store.commitCount = result.commitCount;
+            store.repoCount = result.repoCount
+          })();
+        </script>
+
         <eth-header active="about"></eth-header>
 
         <main>
@@ -42,6 +62,12 @@
                             alt="Ethan, a fair-skinned brown-haired teenager, wearing a white-collared button-up shirt, gently smiling at the camera while leaning against a railing. A vibrant, slightly blurred forest is visible in the background"
                             class="responsive"
                         />
+                    </div>
+                </section>
+                <section>
+                    <div v-scope>
+                        <p>Number of github commits: {{ store.commitCount }}</p>
+                        <p>Number of github repos: {{ store.repoCount }}</p>
                     </div>
                 </section>
             </article>
