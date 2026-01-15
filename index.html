@@ -7,7 +7,10 @@
 
         <meta name="description" content="About Me page for Ethan Marks" />
         <meta property="og:title" content="About Me" />
-        <meta property="og:description" content="About Me page for Ethan Marks" />
+        <meta
+            property="og:description"
+            content="About Me page for Ethan Marks"
+        />
         <meta property="og:type" content="profile" />
 
         <link
@@ -15,31 +18,37 @@
             href="https://site-ethmarks.vercel.app/common/ethmarks.ico"
             type="image/x-icon"
         />
-        <link rel="stylesheet" href="https://site-ethmarks.vercel.app/common/ethmarks-rich.css" />
+        <link
+            rel="stylesheet"
+            href="https://site-ethmarks.vercel.app/common/ethmarks-rich.css"
+        />
         <link rel="stylesheet" href="/style.css" />
-        <script src="https://site-ethmarks.vercel.app/common/ethmarks.wc.js" is:inline defer></script>
+        <script
+            src="https://site-ethmarks.vercel.app/common/ethmarks.wc.js"
+            defer
+        ></script>
     </head>
     <body>
         <script type="module">
-          import { createApp, reactive } from '/assets/petite-vue.js';
-          import getGitStats from '/assets/gitstats.js';
-          import getDaysAlive from '/assets/daysalive.js';
+            import { createApp, reactive } from "/assets/petite-vue.js";
+            import getGitStats from "/assets/gitstats.js";
+            import getDaysAlive from "/assets/daysalive.js";
 
-          const git = reactive({
-            commitCount: '~1500',
-            repoCount: '~17'
-          });
+            const git = reactive({
+                commitCount: "~1500",
+                repoCount: "~17",
+            });
 
-          createApp({
-            git,
-            daysAlive: getDaysAlive()
-          }).mount();
+            createApp({
+                git,
+                daysAlive: getDaysAlive(),
+            }).mount();
 
-          (async () => {
-            const result = await getGitStats("ethmarks");
-            git.commitCount = result.commitCount;
-            git.repoCount = result.repoCount
-          })();
+            (async () => {
+                const result = await getGitStats("ethmarks");
+                git.commitCount = result.commitCount;
+                git.repoCount = result.repoCount;
+            })();
         </script>
 
         <eth-header active="about"></eth-header>
@@ -51,9 +60,9 @@
                     <div>
                         <h2>Bio</h2>
                         <p>
-                            My name is <strong>Ethan Marks</strong>. I'm 15 years
-                            old and in my fourth semester of dual-enrollment at my
-                            local community college.
+                            My name is <strong>Ethan Marks</strong>. I'm 15
+                            years old and in my fourth semester of
+                            dual-enrollment at my local community college.
                         </p>
                     </div>
                 </section>
@@ -68,14 +77,23 @@
                 </section>
                 <section>
                     <div v-scope>
-                        <p>Number of github commits: <span v-text="git.commitCount">~1500</span></p>
-                        <p>Number of github repos: <span v-text="git.repoCount">~10</span></p>
-                        <p>Number of days alive: <span v-text="daysAlive">~5000</span></p>
+                        <p>
+                            Number of github commits:
+                            <span v-text="git.commitCount">~1500</span>
+                        </p>
+                        <p>
+                            Number of github repos:
+                            <span v-text="git.repoCount">~10</span>
+                        </p>
+                        <p>
+                            Number of days alive:
+                            <span v-text="daysAlive">~5000</span>
+                        </p>
                     </div>
                 </section>
             </article>
         </main>
 
-        <eth-footer source=https://github.com/ethmarks/about></eth-footer>
+        <eth-footer source="https://github.com/ethmarks/about"></eth-footer>
     </body>
 </html>
