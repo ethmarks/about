@@ -4,10 +4,9 @@
   "description": "The About Me page of Ethan Marks ",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -20,7 +19,6 @@
   },
   "homepage": "https://github.com/ethmarks/about#readme",
   "devDependencies": {
-    "astro": "^5.16.8",
-    "sharp": "^0.34.5"
+    "vite": "^7.2.6"
   }
 }
