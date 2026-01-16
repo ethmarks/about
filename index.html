@@ -231,6 +231,41 @@
                             src="https://skillicons.dev/icons?i=html,css,sass,js,svelte,alpinejs,astro,vite,vercel,python,git,github,unity&perline=5"
                         />
                     </div>
+                    <div>
+                        <h2>Stats</h2>
+                        <table class="compact">
+                            <thead>
+                                <tr>
+                                    <th>Stat</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Git Commits</td>
+                                    <td v-text="git.commitCount">~1500</td>
+                                </tr>
+                                <tr>
+                                    <td>GitHub Repos</td>
+                                    <td>
+                                        <a
+                                            href="https://github.com/ethmarks?tab=repositories"
+                                            v-text="git.repoCount"
+                                            >~17</a
+                                        >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Days Alive</td>
+                                    <td v-text="daysAlive">~5000</td>
+                                </tr>
+                                <tr>
+                                    <td>US States Visited</td>
+                                    <td>48</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
             </article>
         </main>
