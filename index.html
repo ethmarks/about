@@ -31,11 +31,14 @@
     <body>
         <script type="module">
             import { createApp, reactive } from "/assets/petite-vue.js";
-            import getGitStats from "/assets/gitstats.js";
+            import {
+                getRepoCount,
+                getContributionCount,
+            } from "/assets/gitstats.js";
             import getDaysAlive from "/assets/daysalive.js";
 
             const git = reactive({
-                commitCount: "~1500",
+                contributionCount: "~2400",
                 repoCount: "~17",
             });
 
@@ -45,9 +48,8 @@
             }).mount();
 
             (async () => {
-                const result = await getGitStats("ethmarks");
-                git.commitCount = result.commitCount;
-                git.repoCount = result.repoCount;
+                git.repoCount = await getRepoCount("ethmarks");
+                git.contributionCount = await getContributionCount("ethmarks");
             })();
         </script>
 
@@ -347,8 +349,14 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Git Commits</td>
-                                    <td v-text="git.commitCount">~1500</td>
+                                    <td>GitHub Contributions</td>
+                                    <td>
+                                        <a
+                                            href="https://github-contributions-api.jogruber.de/v4/ethmarks"
+                                            v-text="git.contributionCount"
+                                            >~2400</a
+                                        >
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>GitHub Repos</td>
