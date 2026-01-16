@@ -77,3 +77,14 @@ table {
     background: var(--color-accent-transparent-10);
     color: var(--mint-blend);
 }
+
+@media (max-width: 900px) {
+    .skill svg {
+        width: 30px;
+        height: 30px;
+    }
+    .skill {
+        flex: 1 1 80px;
+        max-width: 150px;
+    }
+}
