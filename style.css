@@ -37,3 +37,43 @@ section > div p {
 table {
     text-align: center !important;
 }
+
+#skill-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-sm) 0;
+}
+
+.skill svg {
+    width: 40px;
+    height: 40px;
+    color: var(--color-accent);
+    transition: color 0.2s ease;
+}
+
+.round {
+    border-radius: var(--radius-md);
+}
+
+.skill {
+    font-weight: 600;
+    display: inline-flex;
+    flex: 1 1 100px;
+    max-width: 200px;
+    gap: var(--spacing-xs);
+    align-items: center;
+    background: var(--color-code-bg);
+    border: var(--border-standard);
+    border-radius: var(--radius-sm);
+    padding: 8px;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+    cursor: default;
+}
+
+.skill:hover {
+    background: var(--color-accent-transparent-10);
+    color: var(--mint-blend);
+}
